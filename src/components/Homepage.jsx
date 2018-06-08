@@ -8,7 +8,6 @@ class Homepage extends Component{
     state = {
         transactions: SampleTransactions,
         showTransactions: SampleTransactions,
-        filterAmount: "",
         search: ''
     }
 
