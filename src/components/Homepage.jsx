@@ -7,29 +7,62 @@ import {SearchBars} from './SearchBars';
 class Homepage extends Component{
     state = {
         transactions: SampleTransactions,
-        showTransactions: SampleTransactions,
-        search: ''
+        searchAmount: '',
+        searchDate: '',
+        searchCard: ''
     }
 
-    onChange = (e) =>{
+    filterAmount = (e) =>{
         const value = e.target.value;
-        this.setState({search:value})
+        this.setState({searchAmount:value});
+    }
+
+    filterDate = (e) =>{
+        const value = e.target.value;
+        this.setState({searchDate:value});
+    }
+
+    filterCard = (e) =>{
+        const value = e.target.value;
+        this.setState({searchCard:value});
     }
 
     render(){
-        let {showTransactions, search} = this.state
-        const regExAmount= new RegExp(search, 'i');
-        showTransactions = showTransactions.filter(transaction=>{
-             return regExAmount.test(transaction.amount)
-        })
+        let {transactions, searchAmount, searchDate, searchCard} = this.state
+        const regExAmount= new RegExp(searchAmount, 'i');
+        const regExDate= new RegExp(searchDate, 'i');
+        const regExCard= new RegExp(searchCard, 'i');
+
+        if (searchAmount){
+            transactions = transactions.filter(transaction=>{
+                return regExAmount.test(transaction.amount)
+           })
+        }
+        if (searchDate){
+            transactions = transactions.filter(transaction=>{
+                return regExDate.test(transaction.date)
+           })
+        }
+        if (searchCard){
+            transactions = transactions.filter(transaction=>{
+                return regExCard.test(transaction.card_last_four)
+           })
+        }
+
 
         return(
             <div>
-                <SearchBars onChange={this.onChange}/>
-                <TransactionsList transactions={showTransactions}/>
+                <div>
+                    <input type="text" name="amount" onChange={this.filterAmount} placeholder="amount"/>
+                    <input type="text" name="date" onChange={this.filterDate} placeholder="date"/>
+                    <input type="text" name="card" onChange={this.filterCard} placeholder="card last four digits"/>
+                </div>
+                <TransactionsList transactions={transactions}/>
             </div>
         )
     }
 }
 
 export default Homepage;
+
+
