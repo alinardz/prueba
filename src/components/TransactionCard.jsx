@@ -1,16 +1,14 @@
 import React from 'react';
-import {Card} from 'semantic-ui-react';
+import Moment from 'react-moment';
 
 export const TransactionCard = (props)=>{
     return(
-        <div style={{marginLeft:"3%", marginBottom:"10px"}}>
-            <Card fluid>
-                <Card.Content>
-                    <Card.Header>{props.transaction.amount}</Card.Header>
-                    <Card.Meta>{props.transaction.date}</Card.Meta>
-                    <Card.Meta>{props.transaction.card_last_four}</Card.Meta> 
-                </Card.Content>
-            </Card>
-        </div>
+        <tr className="numbers">
+            <td>${props.transaction.amount}</td>
+            <td><Moment parse="DD-MM-YYYYTHH:mm:ss" format="DD-MM-YYYY HH:mm">{props.transaction.date}</Moment></td>
+            <td>{props.transaction.card_last_four}</td>
+        </tr>
     )
 }
+
+//27-01-2018T12:34

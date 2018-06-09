@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {SampleTransactions} from '../services/transactions';
 import {TransactionsList} from './TransactionsList';
-import {SearchBars} from './SearchBars';
-
+import {Navbar} from './layout/Navbar';
 
 class Homepage extends Component{
     state = {
@@ -19,12 +18,17 @@ class Homepage extends Component{
 
     filterDate = (e) =>{
         const value = e.target.value;
+        console.log(value)
         this.setState({searchDate:value});
     }
 
     filterCard = (e) =>{
         const value = e.target.value;
         this.setState({searchCard:value});
+    }
+
+    sortDates = () =>{
+        this.state.transactions
     }
 
     render(){
@@ -49,13 +53,19 @@ class Homepage extends Component{
            })
         }
 
-
         return(
             <div>
-                <div>
-                    <input type="text" name="amount" onChange={this.filterAmount} placeholder="amount"/>
-                    <input type="text" name="date" onChange={this.filterDate} placeholder="date"/>
-                    <input type="text" name="card" onChange={this.filterCard} placeholder="card last four digits"/>
+                <Navbar/>
+                <h1>Your Transactions</h1>
+                <div className="filters">
+                    <p>Filter</p>
+                    <table>
+                        <tr>
+                        <th><input type="number" onChange={this.filterAmount} placeholder="amount"/></th>
+                        <th><input type="text" onChange={this.filterDate} placeholder="date dd-mm-yyyy"/></th>
+                        <th><input type="number" onChange={this.filterCard} placeholder="card last digits"/></th>
+                        </tr>
+                    </table>
                 </div>
                 <TransactionsList transactions={transactions}/>
             </div>
