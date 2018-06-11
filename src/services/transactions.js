@@ -12,21 +12,21 @@ export const SampleTransactions = [
 ];
 
 const reverseString = (str) => {
-    var splitString = str.split("");
-    var dayArr = splitString.slice(0, 2);
-    var day = dayArr.join("");
-    var monthArr = splitString.slice(3, 5);
-    var month = monthArr.join("");
-    var yearArr = splitString.slice(6, 10);
-    var year = yearArr.join("")
-    var timeArr = splitString.slice(10, 16)
-    var time = timeArr.join("")
-    var date = year + "-" + month + "-" + day + time;
+    let splitString = str.split("");
+    let dayArr = splitString.slice(0, 2);
+    let day = dayArr.join("");
+    let monthArr = splitString.slice(3, 5);
+    let month = monthArr.join("");
+    let yearArr = splitString.slice(6, 10);
+    let year = yearArr.join("")
+    let timeArr = splitString.slice(10, 16)
+    let time = timeArr.join("")
+    let date = year + "-" + month + "-" + day + time;
     return date;
 }
 
 SampleTransactions.forEach((item) => {
-    var formatedDates = reverseString(item.date);
+    let formatedDates = reverseString(item.date);
     item.date = formatedDates;
 });
 
