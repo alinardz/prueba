@@ -25,11 +25,11 @@ const reverseString = (str) => {
     return date;
 }
 
-SampleTransactions.forEach(function(item) {
+SampleTransactions.forEach((item) => {
     var formatedDates = reverseString(item.date);
     item.date = formatedDates;
 });
 
-SampleTransactions.sort(function(a, b) {
+SampleTransactions.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
 });
