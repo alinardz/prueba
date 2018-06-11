@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {SampleTransactions, reverseString, sortDates, formatDates} from '../services/transactions';
+import {SampleTransactions} from '../services/transactions';
 import {TransactionsList} from './TransactionsList';
 import {Navbar} from './layout/Navbar';
+import {Input, Icon} from 'semantic-ui-react';
 
 class Homepage extends Component{
     state = {
@@ -25,10 +26,6 @@ class Homepage extends Component{
     filterCard = (e) =>{
         const value = e.target.value;
         this.setState({searchCard:value});
-    }
-
-    sortDates = () =>{
-        this.state.transactions
     }
 
     render(){
@@ -61,9 +58,9 @@ class Homepage extends Component{
                     <p>Filter</p>
                     <table>
                         <tr>
-                        <th><input type="number" onChange={this.filterAmount} placeholder="amount"/></th>
-                        <th><input type="text" onChange={this.filterDate} placeholder="date dd-mm-yyyy"/></th>
-                        <th><input type="number" onChange={this.filterCard} placeholder="card last digits"/></th>
+                        <th><Input icon={<Icon name='dollar sign'/>} type="number" onChange={this.filterAmount} placeholder="amount"/></th>
+                        <th><Input icon={<Icon name='calendar outline'/>} type="text" onChange={this.filterDate} placeholder="dd-mm-yyyy"/></th>
+                        <th><Input icon={<Icon name='credit card'/>} type="number" onChange={this.filterCard} placeholder="card last digits"/></th>
                         </tr>
                     </table>
                 </div>
@@ -72,5 +69,6 @@ class Homepage extends Component{
         )
     }
 }
+
 
 export default Homepage;
