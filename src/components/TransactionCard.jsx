@@ -5,10 +5,8 @@ export const TransactionCard = (props)=>{
     return(
         <tr className="numbers">
             <td>${props.transaction.amount}</td>
-            <td><Moment format="DD-MM-YYYY HH:mm">{props.transaction.date}</Moment></td>
+            <td><Moment format="YYYY-MM-DD HH:mm">{props.transaction.date}</Moment></td>
             <td>{props.transaction.card_last_four}</td>
         </tr>
     )
 }
-
-//

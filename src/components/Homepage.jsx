@@ -59,7 +59,7 @@ class Homepage extends Component{
                     <table>
                         <tr>
                         <th><Input icon={<Icon name='dollar sign'/>} type="number" onChange={this.filterAmount} placeholder="amount"/></th>
-                        <th><Input icon={<Icon name='calendar outline'/>} type="text" onChange={this.filterDate} placeholder="dd-mm-yyyy"/></th>
+                        <th><Input icon={<Icon name='calendar outline'/>} type="text" onChange={this.filterDate} placeholder="yyyy-mm-dd"/></th>
                         <th><Input icon={<Icon name='credit card'/>} type="number" onChange={this.filterCard} placeholder="card last digits"/></th>
                         </tr>
                     </table>
