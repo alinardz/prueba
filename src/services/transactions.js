@@ -1,4 +1,4 @@
-export var SampleTransactions = [
+export const SampleTransactions = [
     { amount: 112.98, date: '27-01-2018T12:34', card_last_four: '2544' },
     { amount: 0.45, date: '01-12-2017T09:36', card_last_four: '4434' },
     { amount: 95.99, date: '23-11-2017T14:34', card_last_four: '3011' },
@@ -11,7 +11,7 @@ export var SampleTransactions = [
     { amount: 1111.11, date: '15-01-2018T21:34', card_last_four: '9912' }
 ];
 
-export const reverseString = (function(str) {
+const reverseString = (function(str) {
     var splitString = str.split("");
     var dayArr = splitString.slice(0, 2);
     var day = dayArr.join("");
