@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {SampleTransactions} from '../services/transactions';
+import {SampleTransactions, sortBy} from '../services/transactions';
 import {TransactionsList} from './TransactionsList';
 import {Navbar} from './layout/Navbar';
 
 class Homepage extends Component{
     state = {
-        transactions: SampleTransactions,
+        transactions: sortBy(SampleTransactions, { prop: "date" }),
         searchAmount: '',
         searchDate: '',
         searchCard: ''
