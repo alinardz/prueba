@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {SampleTransactions, sortBy} from '../services/transactions';
+import {SampleTransactions, reverseString, sortDates, formatDates} from '../services/transactions';
 import {TransactionsList} from './TransactionsList';
 import {Navbar} from './layout/Navbar';
 
 class Homepage extends Component{
     state = {
-        transactions: sortBy(SampleTransactions, { prop: "date" }),
+        transactions: SampleTransactions,
         searchAmount: '',
         searchDate: '',
         searchCard: ''
@@ -74,5 +74,3 @@ class Homepage extends Component{
 }
 
 export default Homepage;
-
-
