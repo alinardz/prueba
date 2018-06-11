@@ -11,7 +11,7 @@ export const SampleTransactions = [
     { amount: 1111.11, date: '15-01-2018T21:34', card_last_four: '9912' }
 ];
 
-const reverseString = (function(str) {
+const reverseString = (str) => {
     var splitString = str.split("");
     var dayArr = splitString.slice(0, 2);
     var day = dayArr.join("");
@@ -23,13 +23,13 @@ const reverseString = (function(str) {
     var time = timeArr.join("")
     var date = year + "-" + month + "-" + day + time;
     return date;
-})
+}
 
-SampleTransactions.forEach(function(item) {
+SampleTransactions.forEach((item) => {
     var formatedDates = reverseString(item.date);
     item.date = formatedDates;
 });
 
-SampleTransactions.sort(function(a, b) {
+SampleTransactions.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
 });
